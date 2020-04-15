@@ -1,0 +1,73 @@
+----------------- Options ---------------
+                  D1_freq: 1                             
+                  D2_freq: 1                             
+                  G1_freq: 1                             
+                  G2_freq: 1                             
+               batch_size: 10                            	[default: 1]
+                    beta1: 0.5                           
+          checkpoints_dir: ./checkpoints                 
+           continue_train: False                         
+                crop_size: 256                           
+                 dataroot: /data/private/xxw993/data/cpm17/train	[default: None]
+                  dataset: cpm                           
+             dataset_mode: aligned                       
+                  dice_w0: 1                             
+                  dice_w1: 1                             
+                  dice_w2: 1                             
+                  dice_w3: 1                             
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 200                           
+               display_id: 1                             
+            display_ncols: 4                             
+             display_port: 8098                          
+           display_server: http://localhost              
+          display_winsize: 256                           
+                    epoch: latest                        
+              epoch_count: 1                             
+                 gan_mode: vanilla                       
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 1                             
+                  isTrain: True                          	[default: None]
+              lambda_Dice: 1.0                           
+                lambda_L1: 100.0                         
+                load_iter: 0                             	[default: 0]
+                load_size: 256                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: pix2pix                       
+       model_update_first: 1                             
+        model_update_freq: 2                             
+               n_layers_D: 3                             
+                     name: regression_cpm                	[default: experiment_name]
+                      ndf: 32                            
+                     netD: basic                         
+                     netG: unet_256                      
+                      ngf: 32                            
+                    niter: 80                            	[default: 25]
+              niter_decay: 120                           	[default: 25]
+               no_dropout: False                         
+                  no_flip: False                         
+                  no_html: False                         
+                     norm: batch                         
+              num_threads: 1                             
+                output_nc: 1                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+               print_freq: 10                            
+             save_by_iter: False                         
+          save_epoch_freq: 1                             
+         save_latest_freq: 5000                          
+           serial_batches: False                         
+             stage1_epoch: 40                            	[default: 1]
+             stage2_epoch: 80                            	[default: 1]
+             stage3_epoch: 200                           	[default: 1]
+                   suffix:                               
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------

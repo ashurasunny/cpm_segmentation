@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8b0c6fb7-6e25-45c4-aa50-4ac3e3142a2b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../cascade-UNet2/data/cpm_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cascade-UNet2/test_cpm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cascade-UNet2/train_cpm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dual-gan2/data/cpm_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dual-gan2/test_cpm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dual-gan2/train_cpm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../regression/data/cpm_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../regression/test_cpm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../regression/train_cpm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_Slice.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_Slice_125.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_Slice_200.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_baseline_cpm.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_endtoend_cpm.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/data/cpm_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UNet_endtoend/data/cpm_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/models/pix2pix_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UNet_endtoend/models/pix2pix_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/test_ashura.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UNet_endtoend/test_ashura.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/test_cpm.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UNet_endtoend/test_cpm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cascade-UNet2/models/pix2pix_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cascade-UNet2/models/pix2pix_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cascade-UNet2/options/base_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cascade-UNet2/options/base_options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cascade-UNet2/unetcascade_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../cascade-UNet2/unetcascade_1.csv" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1YwzkfBgUCSxihwi23GlhFefP7u" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/train_cpm.py" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.train_cpm">
+    <configuration name="test_ashura" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="2D_2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_ashura.py" />
+      <option name="PARAMETERS" value="--dataroot /run/media/xxw993/Ashura/ACDC_XI/debug_validation --name 2d2 --model pix2pix --input_nc 1 --output_nc 1" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="2D_2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="--dataroot $PROJECT_DIR$/../../..$PROJECT_DIR$/../../../../../training_crop/slice --name 2d4_g10d1 --model pix2pix --input_nc 1 --output_nc 1 --niter 5 --niter_decay 1 --save_epoch_freq 1 --model_update_first 1 --model_update_freq 4 --G1_freq 1 --D1_freq 10 --G2_freq 1 --D2_freq 10 --stage1_epoch 2 --stage2_epoch 2 --stage3_epoch 2" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train_cpm" type="PythonConfigurationType" factoryName="Python">
+      <module name="2D_2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../../anaconda3/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_cpm.py" />
+      <option name="PARAMETERS" value="--dataroot $PROJECT_DIR$/../../..$PROJECT_DIR$/../../../../../cpm17/train --name regression_cpm --model pix2pix --input_nc 1 --output_nc 1 --niter 80 --niter_decay 120 --save_epoch_freq 1 --stage1_epoch 40 --stage2_epoch 80 --stage3_epoch 200 --dataset cpm --batch_size 10" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.test_ashura" />
+      <item itemvalue="Python.train_cpm" />
+      <item itemvalue="Python.train" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.train" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8b0c6fb7-6e25-45c4-aa50-4ac3e3142a2b" name="Default Changelist" comment="" />
+      <created>1583868588968</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583868588968</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_ashura.py</url>
+          <line>283</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_ashura.py</url>
+          <line>290</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_ashura.py</url>
+          <line>247</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_ashura.py</url>
+          <line>213</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_ashura.py</url>
+          <line>223</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_ashura.py</url>
+          <line>233</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../../../anaconda3/lib/python3.7/site-packages/visdom/__init__.py</url>
+          <line>1291</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/util/visualizer.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_ashura.py</url>
+          <line>259</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_ashura.py</url>
+          <line>271</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train_cpm.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
