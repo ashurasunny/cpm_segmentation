@@ -44,14 +44,19 @@ def np_categorical_dice(pred, truth, k):
 
 def foward_network(a, model):
     a = np.expand_dims(a, axis=0)
-    a = torch.from_numpy(a).to(model.device)
 
-    model.set_input({'A':a, 'B':a})
-    fake_B= model.test()  # run inference
+    a = torch.from_numpy(a).to(model.device)
+    # m = np.expand_dims(m, axis=1)
+    # m = torch.from_numpy(m).to(model.device)
+
+    model.set_input({'A':a, 'M':a})
+    fake_M, fake_B_2 = model.test()  # run inference
     # output = softmax(output, dim=1)
     # output = torch.argmax(output, dim=1)
-    fake_B = fake_B.data.to('cpu').numpy()
-    return fake_B
+    fake_M = fake_M.data.to('cpu').numpy()
+    # fake_B_1 = fake_B_1.data.to('cpu').numpy()
+    fake_B_2 = fake_B_2.data.to('cpu').numpy()
+    return np.concatenate([fake_M, fake_B_2], axis=1)
 
 def MSE(input, target):
     return ((input-target)**2).mean()
@@ -85,7 +90,7 @@ if __name__ == '__main__':
     csv_name = './'+opt.name+'.csv'
     with open(csv_name, 'w+') as f:
         writer = csv.writer(f)
-        for iter in range(12,13):
+        for iter in range(1,340):
             opt.load_iter = iter
             model = create_model(opt)  # create a model given opt.model and other options
             model.setup(opt)  # regular setup: load and print networks; create schedulers
@@ -109,42 +114,68 @@ if __name__ == '__main__':
                 c_starth = (h - window_size) // 2
                 img = img.transpose([2, 0, 1])
 
-                # 5 crop,
-                crop1 = img[::, :window_size, :window_size]
-                crop2 = img[:, -window_size:, :window_size]
-                crop3 = img[:, :window_size:, -window_size:]
-                crop4 = img[:, -window_size:, -window_size:]
-                crop5 = img[:, c_starth:c_starth + window_size, c_startw:c_startw + window_size]
+                if w == 500:
 
-                output1 = foward_network(crop1, model)
-                output2 = foward_network(crop2, model)
-                output3 = foward_network(crop3, model)
-                output4 = foward_network(crop4, model)
-                output5 = foward_network(crop5, model)
+                    # 5 crop,
+                    crop1 = img[::, :window_size, :window_size]
+                    crop2 = img[:, -window_size:, :window_size]
+                    crop3 = img[:, :window_size:, -window_size:]
+                    crop4 = img[:, -window_size:, -window_size:]
+                    crop5 = img[:, c_starth:c_starth + window_size, c_startw:c_startw + window_size]
 
-                n_, h_, w_ = img.shape
-                probshape = [1, 2, h_, w_]
-                full_output = np.zeros(probshape)
+                    output1 = foward_network(crop1, model)
+                    output2 = foward_network(crop2, model)
+                    output3 = foward_network(crop3, model)
+                    output4 = foward_network(crop4, model)
+                    output5 = foward_network(crop5, model)
 
-                full_output[:, :, :window_size, :window_size] += output1
-                full_output[:, :, -window_size:, :window_size] += output2
-                full_output[:, :, :window_size, -window_size:] += output3
-                full_output[:, :, -window_size:, -window_size:] += output4
-                full_output[:, :, c_starth:c_starth + window_size, c_startw:c_startw + window_size] += output5
+                    n_, h_, w_ = img.shape
+                    probshape = [1, 5, h_, w_]
+                    full_output = np.zeros(probshape)
 
-                # full_index = np.zeros(probshape)
-                # full_index[:, :, :window_size, :window_size] += 1
-                # full_index[:, :, -window_size:, :window_size] += 1
-                # full_index[:, :, :window_size, -window_size:] += 1
-                # full_index[:, :, -window_size:, -window_size:] += 1
-                # full_index[:, :, c_starth:c_starth + window_size, c_startw:c_startw + window_size] += 1
-                # # full_index[full_index == 0] = 1
-                # full_output /= full_index
-                #
-                # full_output[full_output>0.5] = 1
-                # full_output[full_output<=0.5] = 0
-                full_output = torch.argmax(torch.from_numpy(full_output), dim=1).data.squeeze().numpy()
+                    full_output[:, :, :window_size, :window_size] += output1
+                    full_output[:, :, -window_size:, :window_size] += output2
+                    full_output[:, :, :window_size, -window_size:] += output3
+                    full_output[:, :, -window_size:, -window_size:] += output4
+                    full_output[:, :, c_starth:c_starth + window_size, c_startw:c_startw + window_size] += output5
+                else:
+                    crop1 = img[:, :window_size, :window_size]
+                    crop2 = img[:, -window_size:, :window_size]
+                    crop3 = img[:, :window_size:, -window_size:]
+                    crop4 = img[:, -window_size:, -window_size:]
+                    crop5 = img[:, c_starth:c_starth + window_size, c_startw:c_startw + window_size]
+                    crop6 = img[:, c_starth:c_starth + window_size, :window_size]
+                    crop7 = img[:, -window_size:, c_startw:c_startw + window_size]
+                    crop8 = img[:, :window_size:, c_startw:c_startw + window_size]
+                    crop9 = img[:, c_starth:c_starth + window_size:, -window_size:]
 
+                    output1 = foward_network(crop1, model)
+                    output2 = foward_network(crop2, model)
+                    output3 = foward_network(crop3, model)
+                    output4 = foward_network(crop4, model)
+                    output5 = foward_network(crop5, model)
+                    output6 = foward_network(crop6, model)
+                    output7 = foward_network(crop7, model)
+                    output8 = foward_network(crop8, model)
+                    output9 = foward_network(crop9, model)
+
+                    n_, h_, w_ = img.shape
+                    probshape = [1, 5, h_, w_]
+                    full_output = np.zeros(probshape)
+
+                    full_output[:, :, :window_size, :window_size] += output1
+                    full_output[:, :, -window_size:, :window_size] += output2
+                    full_output[:, :, :window_size, -window_size:] += output3
+                    full_output[:, :, -window_size:, -window_size:] += output4
+                    full_output[:, :, c_starth:c_starth + window_size, c_startw:c_startw + window_size] += output5
+                    full_output[:, :, c_starth:c_starth + window_size, :window_size] += output6
+                    full_output[:, :, -window_size:, c_startw:c_startw + window_size] += output7
+                    full_output[:, :, :window_size:, c_startw:c_startw + window_size] += output8
+                    full_output[:, :, c_starth:c_starth + window_size:, -window_size:] += output9
+                    
+                fake_M = full_output[:,0:3,:,:].squeeze().transpose([1,2,0])
+                fake_B = full_output[:,3:5,:,:]
+                full_output = torch.argmax(torch.from_numpy(fake_B), dim=1).data.squeeze().numpy()
                 dice = np_categorical_dice(full_output, mask, 1)
                 # dice_temp.append(dice)
                 instance_dice += round(dice, 4)
@@ -156,7 +187,7 @@ if __name__ == '__main__':
                 mask = mask.squeeze()
                 output = cv2.merge([output,output,output])
                 mask = cv2.merge([mask,mask,mask])
-                o = np.concatenate([img_backupt, output, mask], axis=1)
+                o = np.concatenate([img_backupt, fake_M*255, output, mask], axis=1)
 
                 cv2.imwrite(os.path.join('./output', x_path.split('/')[-1]), o)
             instance_dice /= len(imgs)
