@@ -130,7 +130,7 @@ if __name__ == '__main__':
                     output5 = foward_network(crop5, model)
 
                     n_, h_, w_ = img.shape
-                    probshape = [1, 5, h_, w_]
+                    probshape = [1, 4, h_, w_]
                     full_output = np.zeros(probshape)
 
                     full_output[:, :, :window_size, :window_size] += output1
@@ -160,7 +160,7 @@ if __name__ == '__main__':
                     output9 = foward_network(crop9, model)
 
                     n_, h_, w_ = img.shape
-                    probshape = [1, 5, h_, w_]
+                    probshape = [1, 4, h_, w_]
                     full_output = np.zeros(probshape)
 
                     full_output[:, :, :window_size, :window_size] += output1
@@ -174,8 +174,10 @@ if __name__ == '__main__':
                     full_output[:, :, c_starth:c_starth + window_size:, -window_size:] += output9
                     
                 fake_M = full_output[:,0:3,:,:].squeeze().transpose([1,2,0])
-                fake_B = full_output[:,3:5,:,:]
-                full_output = torch.argmax(torch.from_numpy(fake_B), dim=1).data.squeeze().numpy()
+                fake_B = full_output[:,3:4,:,:]
+                # full_output = torch.argmax(torch.from_numpy(fake_B), dim=1).data.squeeze().numpy()
+                fake_B[fake_B>0] = 1
+                full_output = fake_B
                 dice = np_categorical_dice(full_output, mask, 1)
                 # dice_temp.append(dice)
                 instance_dice += round(dice, 4)

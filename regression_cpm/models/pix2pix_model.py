@@ -259,12 +259,12 @@ class Pix2PixModel(BaseModel):
             # self.fake_B_1 = self.netG_2(self.real_AM)
 
             # fake_M_2 = self.real_A.data.cpu().numpy()
-            fake_M = self.fake_M.data.cpu().numpy()
+            # fake_M = self.fake_M.data.cpu().numpy()
 
             # fake_M_2[fake_M==0] = 0
 
             # fake_M_2 = torch.from_numpy(fake_M_2).cuda()
 
-            self.fake_AM = torch.cat((self.real_A, fake_M), 1)
+            self.fake_AM = torch.cat((self.real_A, self.fake_M), 1)
             self.fake_B_2 = self.netG_2(self.fake_AM)
-        return self.fake_M, self.fake_B_1, self.fake_B_2
+        return self.fake_M, self.fake_B_2

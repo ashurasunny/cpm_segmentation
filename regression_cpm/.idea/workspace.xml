@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b0c6fb7-6e25-45c4-aa50-4ac3e3142a2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../cascade-UNet2/data/cpm_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cascade-UNet2/test_cpm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cascade-UNet2/train_cpm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dual-gan2/data/cpm_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dual-gan2/test_cpm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dual-gan2/train_cpm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/data/cpm_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/test_cpm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/train_cpm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_Slice.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_Slice_125.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_Slice_200.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_baseline_cpm.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/UNet_endtoend_cpm.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/data/cpm_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UNet_endtoend/data/cpm_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/models/pix2pix_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UNet_endtoend/models/pix2pix_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/test_ashura.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UNet_endtoend/test_ashura.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UNet_endtoend/test_cpm.py" beforeDir="false" afterPath="$PROJECT_DIR$/../UNet_endtoend/test_cpm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cascade-UNet2/models/pix2pix_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cascade-UNet2/models/pix2pix_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cascade-UNet2/options/base_options.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cascade-UNet2/options/base_options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cascade-UNet2/unetcascade_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../cascade-UNet2/unetcascade_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/pix2pix_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/pix2pix_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_cpm.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_cpm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +26,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/train_cpm.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
