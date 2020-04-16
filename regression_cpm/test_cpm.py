@@ -108,7 +108,7 @@ if __name__ == '__main__':
                 w, h = img.shape[:2]
                 window_size = 256
 
-                img = rescale_intensity(img, thres=[0.5, 99.5])
+                img = img / 255.0
 
                 c_startw = (w - window_size) // 2
                 c_starth = (h - window_size) // 2

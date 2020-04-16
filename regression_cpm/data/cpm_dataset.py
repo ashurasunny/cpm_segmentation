@@ -18,7 +18,7 @@ def crop_img(imgs):
         w,h = img.shape[:2]
         window_size = 256
 
-        img = rescale_intensity(img, thres=[0.5, 99.5])
+        img = img / 255.0
         if w == 500:
             c_startw = (w - window_size) // 2
             c_starth = (h - window_size) // 2
