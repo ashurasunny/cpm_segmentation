@@ -45,7 +45,7 @@ def np_categorical_dice(pred, truth, k):
 def foward_network(a, model):
     a = np.expand_dims(a, axis=0)
 
-    a = torch.from_numpy(a).to(model.device)
+    a = torch.from_numpy(a).float().to(model.device)
     # m = np.expand_dims(m, axis=1)
     # m = torch.from_numpy(m).to(model.device)
 

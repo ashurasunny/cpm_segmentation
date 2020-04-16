@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b0c6fb7-6e25-45c4-aa50-4ac3e3142a2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/cpm_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/cpm_dataset.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_cpm.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_cpm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +25,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../U-Net" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
