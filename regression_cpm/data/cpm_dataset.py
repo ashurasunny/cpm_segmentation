@@ -108,9 +108,9 @@ class CPM17Dataset(Dataset):
     def __getitem__(self, index):
         img_x, img_y = self.imgs[index]
         shift = 10
-        rotate = 15
-        scale = 0.2
-        intensity = 0.1
+        rotate = 10
+        scale = 0.1
+        intensity = 0.2
         flip = True
 
         img_x = np.expand_dims(img_x, axis=0)

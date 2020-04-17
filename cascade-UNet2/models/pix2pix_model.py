@@ -157,6 +157,7 @@ class Pix2PixModel(BaseModel):
         self.optimizer_G_2.zero_grad()  # set G's gradients to zero
         self.backward_G_2()  # calculate graidents for G
         self.optimizer_G_2.step()  # udpate G's weights
+        self.optimizer_G_1.step()  # udpate G's weights
 
         # update G1
         self.optimizer_G_1.zero_grad()  # set G's gradients to zero
