@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
     # dataset_size = len(dataset)    # get the number of images in the dataset.
 
-    train_dataset = CPM17Dataset(opt.dataroot)
+    train_dataset = CPM17Dataset(opt.dataroot, opt.aug_rate)
     train_loader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=0)
 
     dataset_size = len(train_loader)

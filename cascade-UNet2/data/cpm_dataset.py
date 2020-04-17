@@ -97,13 +97,14 @@ def make_dataset(root1, root2):
 
 
 class CPM17Dataset(Dataset):
-    def __init__(self, root, aug=True):
+    def __init__(self, root, aug=True, aug_rate=0):
         root_image = os.path.join(root, 'Images')
         root_label = os.path.join(root, 'Labels')
         imgs = make_dataset(root_image, root_label)
         imgs = crop_img(imgs)
         self.imgs = imgs
         self.augment=aug
+        self.aug_rate = aug_rate
 
     def __getitem__(self, index):
         img_x, img_y = self.imgs[index]
@@ -116,13 +117,12 @@ class CPM17Dataset(Dataset):
         img_x = np.expand_dims(img_x, axis=0)
         img_x = img_x.transpose([0,2,3,1])
         img_y = np.expand_dims(img_y, axis=0)
-        if self.augment:
+        if self.augment and np.random.uniform() > self.aug_rate:
             img_x, img_y = data_augmenter(img_x, img_y, shift=shift, rotate=rotate,
                                             scale=scale, intensity=intensity, flip=flip)
 
         labels_onehot = convert_to_one_hot(img_y).astype(np.float32)
         labels_onehot = labels_onehot.transpose([1, 0, 2, 3])
-
 
         M = img_x.copy()
         M[img_y == 0] = 0
