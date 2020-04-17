@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
     # dataset_size = len(dataset)    # get the number of images in the dataset.
 
-    train_dataset = CPM17Dataset(opt.dataroot, aug_rate=opt.aug_rate)
+    train_dataset = CPM17Dataset(opt.dataroot)
     train_loader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=0)
 
     dataset_size = len(train_loader)
@@ -56,7 +56,7 @@ if __name__ == '__main__':
         
         for i, sample in enumerate(train_loader):
 
-            src, gt, m = sample
+            src, gt = sample
 
             iter_start_time = time.time()  # timer for computation per iteration
             if total_iters % opt.print_freq == 0:
@@ -65,33 +65,8 @@ if __name__ == '__main__':
             total_iters += opt.batch_size
             epoch_iter += opt.batch_size
 
-            model.set_input({'A': src, 'B': gt, 'M': m})  # unpack data from dataset and apply preprocessing
-            if i % opt.G1_freq == 0:
-                G1 = True
-            else:
-                G1 = False
-            if i % opt.G2_freq == 0:
-                G2 = True
-            else:
-                G2 = False
-            if i % opt.D1_freq == 0:
-                D1 = True
-            else:
-                D1 = False
-            if i % opt.D2_freq == 0:
-                D2 = True
-            else:
-                D2 = False
-
-           
-            if epoch == 1:
-                model.optimize_parameters_3(G1, D1, G2, D2)
-            if epoch <= opt.stage1_epoch:
-                model.optimize_parameters(G1, D1)
-            elif epoch > opt.stage1_epoch and epoch <= opt.stage2_epoch:
-                model.optimize_parameters_2(G2, D2)
-            else:
-                model.optimize_parameters_3(G1, D1, G2, D2)
+            model.set_input({'A':src, 'B':gt})         # unpack data from dataset and apply preprocessing
+            model.optimize_parameters()
         
             if total_iters % opt.display_freq == 0:   # display images on visdom and save images to a HTML file
                 save_result = total_iters % opt.update_html_freq == 0

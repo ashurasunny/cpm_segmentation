@@ -23,20 +23,26 @@ from options.train_options import TrainOptions
 from data import create_dataset
 from models import create_model, pix2pix_model
 from util.visualizer import Visualizer
-from data.cpm_dataset import CPM17Dataset
+from data.mri_dataset import get_epoch_batch, make_dataset
 import random
-from torch.utils.data import DataLoader
 import os
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
     # dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
     # dataset_size = len(dataset)    # get the number of images in the dataset.
+    if opt.norm_type == 'slice':
+        norm = True
+        dataroot = os.path.join(opt.dataroot, 'slice')
+    elif opt.norm_type == 'volume':
+        norm = False
+        dataroot = os.path.join(opt.dataroot, 'volume')
+    else:
+        assert False
 
-    train_dataset = CPM17Dataset(opt.dataroot, aug_rate=opt.aug_rate)
-    train_loader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=0)
+    data_list = make_dataset(dataroot)
 
-    dataset_size = len(train_loader)
+    dataset_size = len(data_list)
 
     print('The number of training images = %d' % dataset_size)
 
@@ -54,9 +60,10 @@ if __name__ == '__main__':
 
         idx = random.sample(range(dataset_size), dataset_size)
         
-        for i, sample in enumerate(train_loader):
+        for i in range(dataset_size):
 
-            src, gt, m = sample
+            data = get_epoch_batch(data_list, 1, i, idx, data_augmentation=True,
+                                             shift=10, rotate=0.2, scale=0.1, intensity=0.03, flip=False, norm=norm)
 
             iter_start_time = time.time()  # timer for computation per iteration
             if total_iters % opt.print_freq == 0:
@@ -65,33 +72,8 @@ if __name__ == '__main__':
             total_iters += opt.batch_size
             epoch_iter += opt.batch_size
 
-            model.set_input({'A': src, 'B': gt, 'M': m})  # unpack data from dataset and apply preprocessing
-            if i % opt.G1_freq == 0:
-                G1 = True
-            else:
-                G1 = False
-            if i % opt.G2_freq == 0:
-                G2 = True
-            else:
-                G2 = False
-            if i % opt.D1_freq == 0:
-                D1 = True
-            else:
-                D1 = False
-            if i % opt.D2_freq == 0:
-                D2 = True
-            else:
-                D2 = False
-
-           
-            if epoch == 1:
-                model.optimize_parameters_3(G1, D1, G2, D2)
-            if epoch <= opt.stage1_epoch:
-                model.optimize_parameters(G1, D1)
-            elif epoch > opt.stage1_epoch and epoch <= opt.stage2_epoch:
-                model.optimize_parameters_2(G2, D2)
-            else:
-                model.optimize_parameters_3(G1, D1, G2, D2)
+            model.set_input(data)         # unpack data from dataset and apply preprocessing
+            model.optimize_parameters()
         
             if total_iters % opt.display_freq == 0:   # display images on visdom and save images to a HTML file
                 save_result = total_iters % opt.update_html_freq == 0

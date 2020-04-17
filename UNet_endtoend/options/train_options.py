@@ -15,7 +15,7 @@ class TrainOptions(BaseOptions):
         parser.add_argument('--display_id', type=int, default=1, help='window id of the web display')
         parser.add_argument('--display_server', type=str, default="http://localhost", help='visdom server of the web display')
         parser.add_argument('--display_env', type=str, default='main', help='visdom display environment name (default is "main")')
-        parser.add_argument('--display_port', type=int, default=8097, help='visdom port of the web display')
+        parser.add_argument('--display_port', type=int, default=8098, help='visdom port of the web display')
         parser.add_argument('--update_html_freq', type=int, default=1000, help='frequency of saving training results to html')
         parser.add_argument('--print_freq', type=int, default=10, help='frequency of showing training results on console')
         parser.add_argument('--no_html', action='store_true', help='do not save intermediate training results to [opt.checkpoints_dir]/[opt.name]/web/')
@@ -40,20 +40,12 @@ class TrainOptions(BaseOptions):
         parser.add_argument('--model_update_first', type=int, default=1, help='model 1 or 2 update at first')
         parser.add_argument('--model_update_freq', type=int, default=2, help='frequency of update model by epoch')
         parser.add_argument('--G1_freq', type=int, default=1, help='G1 update frequence')
-        parser.add_argument('--G2_freq', type=int, default=1, help='G2 update frequence')
+        # parser.add_argument('--G2_freq', type=int, default=1, help='G2 update frequence')
         parser.add_argument('--D1_freq', type=int, default=1, help='D1 update frequence')
-        parser.add_argument('--D2_freq', type=int, default=1, help='D2 update frequence')
-      
-        parser.add_argument('--stage1_epoch', type=int, default=1, help='epoch numbers of stage 1')
-        parser.add_argument('--stage2_epoch', type=int, default=1, help='epoch numbers of stage 2')
-        parser.add_argument('--stage3_epoch', type=int, default=1, help='epoch numbers of stage 3')
+        # parser.add_argument('--D2_freq', type=int, default=1, help='D2 update frequence')
 
 
-        #dice loss weights
-        parser.add_argument('--dice_w0', type=float, default=1, help='dice loss weights of label 0')
-        parser.add_argument('--dice_w1', type=float, default=1, help='dice loss weights of label 1')
-        parser.add_argument('--dice_w2', type=float, default=1, help='dice loss weights of label 2')
-        parser.add_argument('--dice_w3', type=float, default=1, help='dice loss weights of label 3')
+
 
         self.isTrain = True
         return parser

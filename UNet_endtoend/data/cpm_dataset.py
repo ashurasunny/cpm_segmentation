@@ -18,7 +18,7 @@ def crop_img(imgs):
         w,h = img.shape[:2]
         window_size = 256
 
-        img = img / 255.0
+        img = rescale_intensity(img, thres=[0.5, 99.5])
         if w == 500:
             c_startw = (w - window_size) // 2
             c_starth = (h - window_size) // 2
@@ -84,7 +84,6 @@ def crop_img(imgs):
 
     return crop_list
 
-
 def make_dataset(root1, root2):
     imgs = []
     n = len(os.listdir(root1))
@@ -96,14 +95,13 @@ def make_dataset(root1, root2):
 
 
 class CPM17Dataset(Dataset):
-    def __init__(self, root, aug=True, aug_rate=0):
+    def __init__(self, root, aug=True):
         root_image = os.path.join(root, 'Images')
         root_label = os.path.join(root, 'Labels')
         imgs = make_dataset(root_image, root_label)
         imgs = crop_img(imgs)
         self.imgs = imgs
         self.augment=aug
-        self.aug_rate = aug_rate
 
     def __getitem__(self, index):
         img_x, img_y = self.imgs[index]
@@ -116,24 +114,18 @@ class CPM17Dataset(Dataset):
         img_x = np.expand_dims(img_x, axis=0)
         img_x = img_x.transpose([0,2,3,1])
         img_y = np.expand_dims(img_y, axis=0)
-        if self.augment  and np.random.uniform() > self.aug_rate:
+        if self.augment  and np.random.uniform() > 0.5:
             img_x, img_y = data_augmenter(img_x, img_y, shift=shift, rotate=rotate,
                                             scale=scale, intensity=intensity, flip=flip)
 
-        # labels_onehot = convert_to_one_hot(img_y).astype(np.float32)
-        # labels_onehot = labels_onehot.transpose([1, 0, 2, 3])
+        labels_onehot = convert_to_one_hot(img_y).astype(np.float32)
+        labels_onehot = labels_onehot.transpose([1, 0, 2, 3])
 
-
-        M = img_x.copy()
-        M[img_y == 0] = 0
-        # cv2.imwrite('./test.png', M.squeeze()*255)
-        M = M.transpose([0, 3, 1, 2])
-        M = torch.from_numpy(M).float()
-
-        img_x = img_x.transpose([0, 3, 1, 2])
+        img_x = img_x.transpose([0,3,1,2])
         img_x = torch.from_numpy(img_x).float()
-        img_y = torch.from_numpy(img_y).float()
-        return img_x.squeeze(), img_y, M.squeeze()
+
+        img_y = torch.from_numpy(labels_onehot)
+        return img_x.squeeze(), img_y.squeeze()
 
     def __len__(self):
         return len(self.imgs)
